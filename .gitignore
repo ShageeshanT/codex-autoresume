@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.cache/
+.autoresume-demo/
+*.tgz
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db

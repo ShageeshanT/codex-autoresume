@@ -1,0 +1,4 @@
+interface:
+  display_name: "AutoResume"
+  short_description: "Control Codex waiting and continuation after resets"
+  default_prompt: "Use $autoresume to show this session's supervision status."

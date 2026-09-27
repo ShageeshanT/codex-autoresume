@@ -1,0 +1,27 @@
+{
+  "name": "codex-autoresume",
+  "version": "0.1.0",
+  "description": "A terminal supervisor that resumes Codex after a verified usage reset",
+  "type": "module",
+  "private": true,
+  "author": "ShageeshanT",
+  "repository": { "type": "git", "url": "https://github.com/ShageeshanT/codex-autoresume.git" },
+  "homepage": "https://github.com/ShageeshanT/codex-autoresume#readme",
+  "bugs": { "url": "https://github.com/ShageeshanT/codex-autoresume/issues" },
+  "bin": { "codex-autoresume": "dist/cli.js", "car": "dist/cli.js" },
+  "files": ["dist", "README.md", "scripts/install-codex.mjs", "integrations/codex"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/cli.js",
+    "dev": "tsx src/cli.ts",
+    "demo": "tsx src/cli.ts demo",
+    "preinstall:codex": "npm run build",
+    "install:codex": "node scripts/install-codex.mjs",
+    "uninstall:codex": "node scripts/install-codex.mjs --uninstall",
+    "test": "npm run build && tsx --test tests/*.test.ts",
+    "check": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json"
+  },
+  "dependencies": { "commander": "^14.0.0", "node-pty": "^1.1.0", "ws": "^8.18.0", "zod": "^4.0.0" },
+  "devDependencies": { "@types/node": "^24.0.0", "@types/ws": "^8.18.0", "tsx": "^4.20.0", "typescript": "^5.9.0" }
+}
