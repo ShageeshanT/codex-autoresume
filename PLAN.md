@@ -57,3 +57,11 @@ Verified on 2026-09-27:
 - Production/test typechecks and all **35 tests passed**, including npm argument forwarding and integration install/reinstall/uninstall checks.
 - A clean source copy installed locked dependencies, compiled, launched the CLI, passed the real-PTY fake-process recovery demo, and installed/uninstalled the Codex integration in a custom home containing spaces. No model requests were made.
 - Reviewed all 32 repository files for local credentials and machine-specific user paths; dependency downloads use the public npm registry. Generated output, dependencies, caches and local runtime state remain excluded from Git.
+
+## Installed command verification
+
+- Installed locked dependencies, rebuilt, refreshed the managed integration, and registered `car` and `codex-autoresume` in the user's npm command directory.
+- Both aliases report version 0.1.0. Doctor connects to Codex CLI 0.153.4 with ChatGPT authentication, and the app-server reports the AutoResume skill as enabled.
+- An actual TUI menu check found that this CLI does not expose the deprecated `/prompts:autoresume` entry. Earlier installation guidance incorrectly treated the legacy prompt file as sufficient proof of support.
+- Verified AutoResume appears in `/skills` after choosing **List skills**. Corrected the README and installer output to use this supported path or `$autoresume`. The legacy prompt template remains for older compatible CLIs.
+- Menu checks and helper checks submitted no model prompt. The current unsupervised conversation still requires an explicit terminal handoff before automatic recovery can operate.

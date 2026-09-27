@@ -188,7 +188,7 @@ The optional continuation prompt is:
 
 ## Commands inside Codex
 
-### Install the skill and slash prompt
+### Install the skill and open it from the slash menu
 
 From the AutoResume checkout:
 
@@ -196,15 +196,15 @@ From the AutoResume checkout:
 npm run install:codex
 ```
 
-Restart Codex CLI, then use:
+Restart Codex CLI, run `/skills`, choose **List skills**, and select **AutoResume**. Add the action you want, such as `status`, `on`, or `off`, to the inserted skill invocation before sending it. You can also type the invocation directly:
 
 ```text
-/prompts:autoresume status
-/prompts:autoresume on
-/prompts:autoresume off
+$autoresume status
+$autoresume on
+$autoresume off
 ```
 
-The corresponding skill invocations are `$autoresume status`, `$autoresume on`, and `$autoresume off`. `/autoresume` by itself is not a built-in Codex command. Codex's [custom prompt mechanism](https://learn.chatgpt.com/docs/custom-prompts) uses `/prompts:` and is deprecated in favor of [skills](https://learn.chatgpt.com/docs/build-skills); this installer provides both entry points.
+`/skills` is the supported slash-menu entry point described in the [official skills documentation](https://learn.chatgpt.com/docs/build-skills). `/autoresume` is not a built-in Codex command. The installer also writes a legacy `/prompts:autoresume` template for older CLIs that support [custom prompts](https://learn.chatgpt.com/docs/custom-prompts). Custom prompts are deprecated, and an actual TUI check of **Codex CLI 0.153.4** found that `/prompts:autoresume` is not available. Use the skill on that version.
 
 | Action | Result |
 | --- | --- |
@@ -215,7 +215,7 @@ The corresponding skill invocations are `$autoresume status`, `$autoresume on`, 
 | `recover` | Gives the command for interactive recovery of the saved wait. |
 | `stop` | Cancels supervision and closes its wrapper terminal. Saved Codex history remains. |
 
-**A slash prompt cannot attach this version to a terminal started with ordinary `codex`.** For such a session, finish the current turn, use `/quit`, and run the returned handoff command in the indicated shell. It uses the exact session UUID, not a potentially unrelated latest session.
+**The skill cannot attach this version to a terminal started with ordinary `codex`.** For such a session, finish the current turn, use `/quit`, and run the returned handoff command in the indicated shell. It uses the exact session UUID, not a potentially unrelated latest session.
 
 Use these commands **before exhausting model allowance**. The prompt/skill needs a model turn to execute. Once the external supervisor is running, its timer and status checks operate independently of the model. Enable automatic continuation before the interruption so the supervisor can capture the workspace fingerprint at the right time.
 
@@ -352,9 +352,9 @@ Sign in through Codex using **Sign in with ChatGPT**, then rerun `car doctor`. A
 
 Follow the current [node-gyp installation guidance](https://github.com/nodejs/node-gyp#installation) for your platform and architecture. If you changed Node.js versions, rerun `npm ci` to reinstall the native dependency for that environment. Do not suppress dependency install scripts with `--ignore-scripts` for the normal installation.
 
-### The slash command or skill does not appear
+### AutoResume does not appear in the skills menu
 
-Run `npm run install:codex` from the checkout, check the printed destination, and restart Codex CLI. The slash name is `/prompts:autoresume`; the skill name is `$autoresume`. If you use `CODEX_HOME`, ensure the installer and Codex use the same value. An existing unrelated `autoresume` file is left untouched; inspect or rename that conflict yourself.
+Run `npm run install:codex` from the checkout, check the printed destination, and restart Codex CLI. Open `/skills`, choose **List skills**, and select **AutoResume**, or type `$autoresume status` directly. `/prompts:autoresume` is a legacy entry point and is not available in the tested CLI 0.153.4. If you use `CODEX_HOME`, ensure the installer and Codex use the same value. An existing unrelated `autoresume` file is left untouched; inspect or rename that conflict yourself.
 
 ### `on` prints a handoff command
 

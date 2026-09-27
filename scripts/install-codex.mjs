@@ -44,4 +44,5 @@ for (const { destination, contents } of prepared) {
   writeFileSync(destination, contents, { mode: 0o600 });
   console.log(`Installed ${destination}`);
 }
-console.log('Restart Codex CLI, then use /prompts:autoresume status or $autoresume status.');
+console.log('Restart Codex CLI, then open /skills, choose List skills and select AutoResume, or type $autoresume status.');
+console.log('The legacy /prompts:autoresume entry requires a CLI that still supports custom prompts; it is not available in the tested CLI 0.153.4.');
