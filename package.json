@@ -5,6 +5,7 @@
   "type": "module",
   "private": true,
   "author": "ShageeshanT",
+  "license": "MIT",
   "repository": { "type": "git", "url": "https://github.com/ShageeshanT/codex-autoresume.git" },
   "homepage": "https://github.com/ShageeshanT/codex-autoresume#readme",
   "bugs": { "url": "https://github.com/ShageeshanT/codex-autoresume/issues" },

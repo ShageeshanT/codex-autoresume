@@ -29,6 +29,7 @@ OpenAI controls the allowance and its reset. AutoResume does not reset quotas, r
 - [Troubleshooting](#troubleshooting)
 - [How it works and what it stores](#how-it-works-and-what-it-stores)
 - [Development](#development)
+- [License](#license)
 
 ## Requirements
 
@@ -427,3 +428,7 @@ tests/            Unit and integration tests
 See [PLAN.md](PLAN.md) for implementation decisions and verification history. [The original project brief](codex-autoresume-complete-plan.md) also contains future ideas, including desktop support; it is not a statement that every planned feature is implemented.
 
 Protocol references: [Codex app-server](https://learn.chatgpt.com/docs/app-server), [Codex CLI](https://developers.openai.com/codex/cli/), [skills](https://learn.chatgpt.com/docs/build-skills), and [custom prompts](https://learn.chatgpt.com/docs/custom-prompts).
+
+## License
+
+Released under the [MIT License](LICENSE). You are free to use, modify, fork and build on AutoResume. Issues and pull requests are welcome.
